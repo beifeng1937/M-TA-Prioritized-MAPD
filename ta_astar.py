@@ -86,7 +86,7 @@ class AStar:
         open_list = [initial_state]
         closed_set = set()
         initial_state.g_score = 0
-        initial_state.f_score = get_heuristic(start_location, goal_location)
+        initial_state.f_score = get_heuristic(start_location, goal_location) #Manhattan distance
         while open_list:
             current = heappop(open_list)
             if current.location == goal_location:
