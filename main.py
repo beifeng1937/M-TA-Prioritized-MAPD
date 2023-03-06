@@ -29,6 +29,7 @@ def copy_queue(queue):
 
 
 def find_agent_path(world, agent, time_step, release_time=0, find_step=0):
+    # parameter find_step : 1 means start->pickup , 2 means pickuo->delivery
     a_star = AStar(world)
     other_agent_paths = []
     parking_locations = []
@@ -86,7 +87,7 @@ def main():
     for next_agent in world.agents:
         time_agent_start = time.perf_counter()
         max_len = 0
-        priority_id = -1
+        priority_id = -1 #mark the agent with the highest execution time
         print("Determining execution times", end='')
         '''
         Calculate agents execution time for their paths
